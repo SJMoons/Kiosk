@@ -37,9 +37,14 @@ class Flow {
                     break
                 } else if (main.continueOrNot == 3) {
                     main.deleteMenu()
-                    break
+                    if (main.deleteStop == 2) {
+                        break
+                    } else if (menu.appendMenu.size == 0) {
+                        System.exit(0)
+                    }
                 }
             } else if (main.topingYesNot == 2) {
+                menu.topingCount.add(0)
                 main.calculateCups()
                 main.basket()
                 if (main.continueOrNot == 2) {

@@ -35,6 +35,7 @@ class Menu {
     , 300, 300, 300, 300, 500, 1000, 300)
     var realCategory = mutableListOf<Any>(coffee, ade, shake, flatcino)
     var packing = mutableListOf<Any>("매장에서 먹기","테이크아웃")
+    var topingCount = mutableListOf<Int>()
     var appendMenu = mutableListOf<Any>()
     var appendCost = mutableListOf<Int>()
     var appendTotalCost = mutableListOf<Int>()
@@ -51,3 +52,4 @@ class Menu {
 //                        println(i)
 
 
+//2중 리스트 mutableListof<MuntableListof<Int>>
