@@ -3,9 +3,9 @@ package com.example.week_1_kiosk
 class Menu {
     var category = mutableListOf<String>("1.COFFEE", "2.ADE", "3.SHAKE", "4.FLATCINO")
 //    var cateGory = mutableListOf<String>("coffee","ade","shake","flatcino")
-    var coffee = mutableListOf(listOf("카페 아메리카노", 3200), listOf("카페 라떼", 3700),
-    listOf("카푸치노", 3700), listOf("아인슈페너", 3700),listOf("연유 카페 라떼", 3800),
-    listOf("카페 모카", 3900), listOf("카라멜 마끼야또", 3900))
+    var coffee = mutableListOf(mutableListOf("카페 아메리카노", 3200), mutableListOf("카페 라떼", 3700),
+    mutableListOf("카푸치노", 3700), mutableListOf("아인슈페너", 3700),mutableListOf("연유 카페 라떼", 3800),
+    mutableListOf("카페 모카", 3900), mutableListOf("카라멜 마끼야또", 3900))
     var coffeeMenu = mutableListOf("카페 아메리카노", "카페 라떼",
         "카푸치노","아인슈페너","연유 카페 라떼","카페 모카","카라멜 마끼야또")
     var coffeeCost = mutableListOf(3200,3700,3700,3700,3800,3900,3900)
@@ -33,7 +33,7 @@ class Menu {
         "+(토핑)카라멜 소스","+(토핑)초콜릿칩","+타피오카펄","+(시럽)아이리쉬")
     var topingCost = mutableListOf(500, 500
     , 300, 300, 300, 300, 500, 1000, 300)
-    var realCategory = mutableListOf<Any>(coffee, ade, shake, flatcino)
+    var realCategory = mutableListOf<Any>(coffee , ade, shake, flatcino)
     var packing = mutableListOf<Any>("매장에서 먹기","테이크아웃")
     var topingCount = mutableListOf<Int>()
     var appendMenu = mutableListOf<Any>()
@@ -42,6 +42,7 @@ class Menu {
     var appendCups = mutableListOf<Int>()
     var appendToping = mutableListOf<Any>()
     var appendTopingCost = mutableListOf<Int>()
+    var appendTopingTotalCost = mutableListOf<Int>()
     init{
     }
 }

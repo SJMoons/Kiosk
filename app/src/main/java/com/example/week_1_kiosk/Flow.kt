@@ -1,62 +1,50 @@
 package com.example.week_1_kiosk
 import com.example.week_1_kiosk.Payment as Payment
-import com.example.week_1_kiosk.Menu as Menu
+import com.example.week_1_kiosk.OrderMenu as OrderMenu
+import com.example.week_1_kiosk.DeleteMenu as DeleteMenu
+
 
 class Flow {
     var menu = Menu()
-    var main = Main(menu)
+    var order = OrderMenu(menu)
     var pay = Payment(menu)
-    var packaging: Int? = 0
+    var delete = DeleteMenu(menu,order)
+
 
     init {
     }
 
     fun flowStart() {
+
         while(true) {
-            println("1.매장에서 먹기, 2.테이크아웃")
-            try {
-                packaging = readLine()?.toInt()
-            } catch (e: NumberFormatException) {
-                null
-            } finally {
-                if (packaging == 1 || packaging ==2) {
+            order.categoryOrder()
+            order.menuOrder()
+            if (order.topingYesNot == 1) {
+                order.toping()
+                order.calculateCups()
+                order.basket()
+                if (order.continueOrNot == 2) {
                     break
-                } else {
-                    println("다시 입력해주십시오")
-                }
-            }
-        }
-        while(true) {
-            main.categoryOrder()
-            main.menuOrder()
-            if (main.topingYesNot == 1) {
-                main.toping()
-                main.calculateCups()
-                main.basket()
-                if (main.continueOrNot == 2) {
-                    break
-                } else if (main.continueOrNot == 3) {
-                    main.deleteMenu()
-                    if (main.deleteStop == 2) {
+                } else if (order.continueOrNot == 3) {
+                    delete.deleteMenu()
+                    if (delete.deleteStop == 2) {
                         break
-                    } else if (menu.appendMenu.size == 0) {
-                        System.exit(0)
                     }
                 }
-            } else if (main.topingYesNot == 2) {
+            } else if (order.topingYesNot == 2) {
                 menu.topingCount.add(0)
-                main.calculateCups()
-                main.basket()
-                if (main.continueOrNot == 2) {
+                order.calculateCups()
+                order.basket()
+                if (order.continueOrNot == 2) {
                     break
-                } else if (main.continueOrNot == 3) {
-                    main.deleteMenu()
+                } else if (order.continueOrNot == 3) {
+                    delete.deleteMenu()
                     break
                 }
             }
         }
         pay.payWay()
-        pay.receipt(main.index,packaging!!,main.topingIndex)
+        pay.receipt(order.index,order.packaging!!,order.topingIndex)
 
     }
 }

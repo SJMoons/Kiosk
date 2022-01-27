@@ -5,8 +5,10 @@ class Payment(var menu: Menu) {
     var payWay: Int? = 0
     var goPay: Int? = 0
     var reCeipt: Int? = 0
+
     init{
     }
+
     fun payWay() {
         println("")
         println("결제 수단을 선택해 주세요")
@@ -24,8 +26,8 @@ class Payment(var menu: Menu) {
             println(".")
             println("결제가 완료되었습니다")
         }
-
     }
+
     fun receipt(index: Int, packing: Int, topingIndex:Int) {
         println("영수증을 출력은 1 미출력은 2를 눌러주세요")
         reCeipt = readLine()!!.toInt()
@@ -35,7 +37,7 @@ class Payment(var menu: Menu) {
             for (i in 0..index - 1)
                 println("  ${menu.appendMenu.get(i)}     ${menu.appendCups.get(i)}     ${menu.appendTotalCost.get(i)}")
 
-            if (menu.appendTopingCost.size > 0) {
+            if (menu.appendTopingTotalCost.size > 0) {
                 for (i in 0..topingIndex- 1)
                 println("${menu.appendToping[i]}")
                 println("               총 ${menu.appendTotalCost.sum()}원")
